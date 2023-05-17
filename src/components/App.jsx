@@ -11,11 +11,21 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
   
-  const updateState = (option) => {
-    if (option === 'good') setGood(prev => prev + 1);
-    if (option === 'neutral') setNeutral(prev => prev + 1);
-    if (option === 'bad') setBad(prev => prev + 1);
-  };
+ const updateState = (option) => {
+  switch (option) {
+    case 'good':
+      setGood((prev) => prev + 1);
+      break;
+    case 'neutral':
+      setNeutral((prev) => prev + 1);
+      break;
+    case 'bad':
+      setBad((prev) => prev + 1);
+      break;
+    default:
+      break;
+  }
+};
 
    const countTotalFeedback = () => {
     return good + neutral + bad;
